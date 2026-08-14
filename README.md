@@ -8,7 +8,7 @@
 <!-- Welcome Text -->
 <h2>
   <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="35" style="vertical-align: middle; margin-right: 8px;" />
-  Selamat Datang di Baileys PontaLabs
+  Welcome to Baileys
 </h2>
 
 <br>
@@ -336,20 +336,20 @@ await sock.sendMessage(jid, {
 <details>
 <summary><b>🔩 Raw / Legacy Buttons</b></summary>
 
-> Varian tombol raw/proto WhatsApp mentah — lebih fleksibel, tapi kamu yang susun strukturnya sendiri.
+> Raw/proto WhatsApp button variants — more flexible, but you build the structure yourself.
 
 #### `buttonsMessage`
 
-Kirim objek `buttonsMessage` proto WhatsApp mentah — thumbnail lokasi di dalamnya otomatis diproses kalau berupa Buffer/URL/path.
+Send a raw WhatsApp `buttonsMessage` proto object — the thumbnail inside it is automatically processed if it's a Buffer/URL/path.
 
 ```js
 await sock.sendMessage(jid, {
   buttonsMessage: {
-    contentText: 'Pilih salah satu:',
+    contentText: 'Choose one:',
     footerText: '© PontaCT',
     buttons: [
-      { buttonId: 'a', buttonText: { displayText: 'Opsi A' }, type: 1 },
-      { buttonId: 'b', buttonText: { displayText: 'Opsi B' }, type: 1 }
+      { buttonId: 'a', buttonText: { displayText: 'Option A' }, type: 1 },
+      { buttonId: 'b', buttonText: { displayText: 'Option B' }, type: 1 }
     ]
   }
 }, { quoted: message })
@@ -359,11 +359,11 @@ await sock.sendMessage(jid, {
 
 ```js
 await sock.sendMessage(jid, {
-  text: 'Butuh bantuan?',
+  text: 'Need help?',
   footer: '© PontaCT',
   templateButtons: [
-    { index: 1, urlButton: { displayText: 'Kunjungi Website', url: 'https://example.com' } },
-    { index: 2, callButton: { displayText: 'Telepon', phoneNumber: '+6281234567890' } }
+    { index: 1, urlButton: { displayText: 'Visit Website', url: 'https://example.com' } },
+    { index: 2, callButton: { displayText: 'Call', phoneNumber: '+6281234567890' } }
   ]
 }, { quoted: message })
 ```
@@ -372,12 +372,12 @@ await sock.sendMessage(jid, {
 
 ```js
 await sock.sendMessage(jid, {
-  title: 'Menu Utama',
-  subtitle: 'Silakan pilih',
-  text: 'Ada yang bisa dibantu?',
+  title: 'Main Menu',
+  subtitle: 'Please choose',
+  text: 'How can we help?',
   footer: '© PontaCT',
   interactiveButtons: [
-    { name: 'quick_reply', buttonParamsJson: JSON.stringify({ display_text: 'Mulai', id: 'start' }) }
+    { name: 'quick_reply', buttonParamsJson: JSON.stringify({ display_text: 'Start', id: 'start' }) }
   ]
 }, { quoted: message })
 ```
@@ -400,7 +400,7 @@ await sock.sendMessage(jid, { keep: { key: message.key, type: 1 } })
 
 ### 📍 Location + Buttons
 
-> Location message with native list menu (`single_select`) and extra buttons — all in one `buttonsMessage`.
+> Location message with a native list menu (`single_select`) and extra buttons — all in one `buttonsMessage`.
 
 <details>
 <summary><b>Location + List Menu</b></summary>
@@ -410,17 +410,17 @@ await sock.sendMessage(jid, {
   buttonLocation: {
     latitude: -6.2088,
     longitude: 106.8456,
-    name: 'Kantor Pusat PontaCT',
-    address: 'Jl. Sudirman No. 1, Jakarta Pusat',
-    text: 'Temukan kami di sini:',
+    name: 'PontaCT Head Office',
+    address: 'Jl. Sudirman No. 1, Central Jakarta',
+    text: 'Find us here:',
     footer: '© PontaCT',
     thumbnail: 'https://example.com/map-preview.jpg',
-    listButtonText: 'Pilih Layanan',
-    listSectionTitle: 'Layanan Tersedia',
+    listButtonText: 'Choose a Service',
+    listSectionTitle: 'Available Services',
     listMenu: [
-      { title: 'Customer Service', description: 'Lantai 1, Senin–Jumat 08.00–17.00', id: 'cs' },
-      { title: 'Kasir & Pembayaran', description: 'Lantai 2, buka setiap hari', id: 'kasir' },
-      { title: 'Gudang & Pengiriman', description: 'Gedung B, pintu belakang', id: 'gudang' }
+      { title: 'Customer Service', description: '1st Floor, Mon–Fri 08:00–17:00', id: 'cs' },
+      { title: 'Cashier & Payment', description: '2nd Floor, open every day', id: 'kasir' },
+      { title: 'Warehouse & Shipping', description: 'Building B, back door', id: 'gudang' }
     ]
   }
 })
@@ -435,15 +435,15 @@ await sock.sendMessage(jid, {
   buttonLocation: {
     latitude: -6.2088,
     longitude: 106.8456,
-    name: 'Toko PontaCT',
+    name: 'PontaCT Store',
     address: 'Jl. Kebon Sirih No. 10, Jakarta',
-    text: 'Kunjungi toko kami!',
+    text: 'Visit our store!',
     footer: '© PontaCT',
     thumbnail: 'https://example.com/store.jpg',
     extraButtons: [
-      { id: 'call', displayText: '📞 Hubungi Kami' },
+      { id: 'call', displayText: '📞 Contact Us' },
       { id: 'whatsapp', displayText: '💬 WhatsApp' },
-      { id: 'maps', displayText: '🗺️ Buka di Maps' }
+      { id: 'maps', displayText: '🗺️ Open in Maps' }
     ]
   }
 })
@@ -458,21 +458,21 @@ await sock.sendMessage(jid, {
   buttonLocation: {
     latitude: -6.2088,
     longitude: 106.8456,
-    name: 'Plaza PontaCT',
+    name: 'PontaCT Plaza',
     address: 'Jl. MH Thamrin No. 5, Jakarta',
-    text: 'Selamat datang di pusat layanan kami.',
-    footer: 'Buka setiap hari 09.00–21.00',
+    text: 'Welcome to our service center.',
+    footer: 'Open every day 09:00–21:00',
     thumbnail: 'https://example.com/plaza.jpg',
-    listButtonText: 'Pilih Tujuan',
-    listSectionTitle: 'Area Tersedia',
+    listButtonText: 'Choose Destination',
+    listSectionTitle: 'Available Areas',
     listMenu: [
-      { title: 'Food Court', description: 'Lt. 1 — lebih dari 30 tenant', id: 'food' },
-      { title: 'Cinema', description: 'Lt. 4 — 8 studio', id: 'cinema' },
-      { title: 'Customer Care', description: 'Lt. 2 — sebelah eskalator', id: 'care' }
+      { title: 'Food Court', description: '1F — over 30 tenants', id: 'food' },
+      { title: 'Cinema', description: '4F — 8 studios', id: 'cinema' },
+      { title: 'Customer Care', description: '2F — next to escalator', id: 'care' }
     ],
     extraButtons: [
-      { id: 'navigate', displayText: '🧭 Navigasi' },
-      { id: 'promo', displayText: '🎁 Promo Hari Ini' }
+      { id: 'navigate', displayText: '🧭 Navigate' },
+      { id: 'promo', displayText: "🎁 Today's Promo" }
     ]
   }
 })
@@ -491,8 +491,8 @@ await sock.sendMessage(jid, {
 | `text` | `string` | — | `''` | Message body text |
 | `footer` | `string` | — | `''` | Footer text |
 | `thumbnail` | `Buffer / URL / path` | ✅ | — | Map preview image |
-| `listButtonText` | `string` | — | `'Pilih Menu'` | List button label |
-| `listSectionTitle` | `string` | — | `'Pilihan'` | List section title |
+| `listButtonText` | `string` | — | `'Choose Menu'` | List button label |
+| `listSectionTitle` | `string` | — | `'Options'` | List section title |
 | `listMenu` | `array` | — | — | Menu rows |
 | `extraButtons` | `array` | — | — | Extra buttons |
 
@@ -502,7 +502,7 @@ await sock.sendMessage(jid, {
 
 ### 📦 Order Status
 
-> Interactive order tracking card using native `order_status` flow button.
+> Interactive order tracking card using the native `order_status` flow button.
 
 <details>
 <summary><b>Basic Order Status</b></summary>
@@ -511,8 +511,8 @@ await sock.sendMessage(jid, {
 await sock.sendMessage(jid, {
   orderStatus: {
     image: 'https://example.com/order-banner.jpg',
-    title: 'Status Pesanan',
-    text: 'Pesanan kamu sedang diproses oleh penjual.',
+    title: 'Order Status',
+    text: 'Your order is being processed by the seller.',
     referenceId: 'ORD-20250629-001',
     status: 'PROCESSING',
     currency: 'IDR'
@@ -528,9 +528,9 @@ await sock.sendMessage(jid, {
 await sock.sendMessage(jid, {
   orderStatus: {
     image: 'https://example.com/order.jpg',
-    title: 'Update Pesanan #ORD-2025-001',
-    text: 'Pesananmu sedang dalam perjalanan! 🚚',
-    footer: 'Estimasi tiba: 2–3 hari kerja',
+    title: 'Order Update #ORD-2025-001',
+    text: 'Your order is on its way! 🚚',
+    footer: 'Estimated arrival: 2–3 business days',
     referenceId: 'ORD-2025-001',
     status: 'SHIPPED',
     subtotalValue: 15000000,
@@ -551,8 +551,8 @@ const fs = require('fs')
 await sock.sendMessage(jid, {
   orderStatus: {
     image: fs.readFileSync('./assets/order-confirm.jpg'),
-    title: 'Pesanan Dikonfirmasi ✅',
-    text: 'Terima kasih telah berbelanja!',
+    title: 'Order Confirmed ✅',
+    text: 'Thank you for shopping with us!',
     referenceId: 'ORD-LOCAL-001',
     status: 'PROCESSING',
     currency: 'IDR'
@@ -568,7 +568,7 @@ await sock.sendMessage(jid, {
 |:---|:---|:---:|:---|:---|
 | `image` | `Buffer / URL / path` | ✅ | — | Header card image |
 | `title` | `string` | — | `'Order Status'` | Header title |
-| `text` | `string` | — | `'Silakan cek status pesanan Anda.'` | Body text |
+| `text` | `string` | — | `'Please check your order status.'` | Body text |
 | `footer` | `string` | — | `'Powered by PontaCT'` | Footer text |
 | `referenceId` | `string` | — | `'PT-001'` | Order reference ID |
 | `status` | `string` | — | `'PROCESSING'` | Order status |
@@ -586,7 +586,7 @@ await sock.sendMessage(jid, {
 
 ### 🤖 Rich Messages
 
-> All rich messages are sent via standard `sendMessage` and rendered as AI bot messages in WhatsApp. Use the appropriate key instead of `text`, `image`, `video`, etc.
+> All rich messages are sent via the standard `sendMessage` and rendered as AI bot messages in WhatsApp. Use the appropriate key instead of `text`, `image`, `video`, etc.
 
 **Quick jump:** [Rich Text](#rich-text) · [Code](#rich-code-block) · [Table](#rich-table) · [Images](#rich-images) · [Video](#rich-video) · [Suggestions](#rich-suggestions) · [LaTeX](#rich-latex) · [Product](#rich-product) · [Post](#rich-post) · [Reels](#rich-reels) · [Sources](#rich-sources) · [Tip & Footer](#rich-tip--footer) · [Mixed](#rich-mixed) · [Response](#rich-response)
 
@@ -600,7 +600,7 @@ await sock.sendMessage(jid, {
 <summary><b>Simple Text</b></summary>
 
 ```js
-await sock.sendMessage(jid, { richText: 'Halo! Ini pesan dari bot.' }, { quoted: message })
+await sock.sendMessage(jid, { richText: 'Hello! This is a bot message.' }, { quoted: message })
 ```
 </details>
 
@@ -609,7 +609,7 @@ await sock.sendMessage(jid, { richText: 'Halo! Ini pesan dari bot.' }, { quoted:
 
 ```js
 await sock.sendMessage(jid, {
-  richText: '*Hasil eksekusi:*\nStatus: `success`\nWaktu: _120ms_'
+  richText: '*Execution result:*\nStatus: `success`\nTime: _120ms_'
 }, { quoted: message })
 ```
 </details>
@@ -619,7 +619,7 @@ await sock.sendMessage(jid, {
 
 ```js
 await sock.sendMessage(jid, {
-  richText: ['Baris pertama.', 'Baris kedua.', 'Baris ketiga.']
+  richText: ['First line.', 'Second line.', 'Third line.']
 }, { quoted: message })
 ```
 </details>
@@ -628,7 +628,7 @@ await sock.sendMessage(jid, {
 
 #### 💻 Rich Code Block
 
-> Syntax-highlighted code. Use `code` for single block, `codes` for multiple.
+> Syntax-highlighted code. Use `code` for a single block, `codes` for multiple.
 
 <details>
 <summary><b>Single Block</b></summary>
@@ -677,9 +677,9 @@ await sock.sendMessage(jid, {
 
 #### 📊 Rich Table
 
-> Structured table with `title`, `headers`, and `rows`.
+> A structured table with `title`, `headers`, and `rows`.
 >
-> ⚠️ Shorthand `{ title?, headers?, rows }` ini hanya berlaku untuk key `table` top-level dan di dalam `items`. Kalau dipakai di dalam `richResponse`, isi `table` harus sudah berupa array baris jadi — lihat [Rich Response](#-rich-response--richresponse).
+> ⚠️ The shorthand `{ title?, headers?, rows }` only applies to the top-level `table` key and inside `items`. When used inside `richResponse`, the `table` content must already be a ready-made array of rows — see [Rich Response](#-rich-response--richresponse).
 
 <details>
 <summary><b>Simple Table</b></summary>
@@ -687,7 +687,7 @@ await sock.sendMessage(jid, {
 ```js
 await sock.sendMessage(jid, {
   table: {
-    title: 'Daftar User',
+    title: 'User List',
     headers: ['Name', 'Role', 'Status'],
     rows: [
       ['Ponta', 'Admin', 'Active'],
@@ -707,9 +707,9 @@ await sock.sendMessage(jid, {
   table: {
     headers: ['Command', 'Description'],
     rows: [
-      ['.ping', 'Cek latency bot'],
-      ['.info', 'Info bot'],
-      ['.help', 'List semua command']
+      ['.ping', 'Check bot latency'],
+      ['.info', 'Bot info'],
+      ['.help', 'List all commands']
     ]
   }
 }, { quoted: message })
@@ -736,7 +736,7 @@ await sock.sendMessage(jid, {
 
 #### 🖼️ Rich Images
 
-> AI image grid. Single URL = single image, multiple URLs = carousel.
+> AI image grid. A single URL = single image, multiple URLs = carousel.
 
 <details>
 <summary><b>Single Image</b></summary>
@@ -767,7 +767,7 @@ await sock.sendMessage(jid, {
 // items
 await sock.sendMessage(jid, {
   items: [
-    { text: 'Hasil foto hari ini:' },
+    { text: "Today's photos:" },
     { images: ['https://example.com/1.jpg', 'https://example.com/2.jpg'] }
   ]
 }, { quoted: message })
@@ -775,7 +775,7 @@ await sock.sendMessage(jid, {
 // richResponse
 await sock.sendMessage(jid, {
   richResponse: [
-    { text: 'Lihat gambarnya:' },
+    { text: 'Check the image:' },
     { images: 'https://example.com/banner.jpg' }
   ]
 }, { quoted: message })
@@ -818,7 +818,7 @@ await sock.sendMessage(jid, {
 // items
 await sock.sendMessage(jid, {
   items: [
-    { text: 'Cek videonya:' },
+    { text: 'Check out the video:' },
     { videoUrl: 'https://example.com/clip.mp4', duration: 20 }
   ]
 }, { quoted: message })
@@ -844,7 +844,7 @@ await sock.sendMessage(jid, {
 
 ```js
 await sock.sendMessage(jid, {
-  richSuggestions: ['Coba lagi', 'Lihat detail', 'Batalkan']
+  richSuggestions: ['Try again', 'View details', 'Cancel']
 }, { quoted: message })
 ```
 </details>
@@ -856,16 +856,16 @@ await sock.sendMessage(jid, {
 // items
 await sock.sendMessage(jid, {
   items: [
-    { text: 'Mau lanjut ke mana?' },
-    { suggestions: ['Halaman utama', 'Bantuan', 'Hubungi admin'] }
+    { text: 'Where would you like to go next?' },
+    { suggestions: ['Home page', 'Help', 'Contact admin'] }
   ]
 }, { quoted: message })
 
 // richResponse
 await sock.sendMessage(jid, {
   richResponse: [
-    { text: 'Hasil pencarian ditemukan.' },
-    { suggestions: ['Tampilkan semua', 'Filter ulang', 'Export'] }
+    { text: 'Search results found.' },
+    { suggestions: ['Show all', 'Refilter', 'Export'] }
   ]
 }, { quoted: message })
 ```
@@ -875,7 +875,7 @@ await sock.sendMessage(jid, {
 
 #### 🔣 Rich LaTeX
 
-> Math formula rendering as `GenAILatexItem` inline entity. `url` points to a rendered formula image (PNG/JPG from external LaTeX renderer).
+> Math formula rendering as a `GenAILatexItem` inline entity. `url` points to a rendered formula image (PNG/JPG from an external LaTeX renderer).
 
 <details>
 <summary><b>Shorthand URL</b></summary>
@@ -911,7 +911,7 @@ await sock.sendMessage(jid, {
 // items
 await sock.sendMessage(jid, {
   items: [
-    { text: 'Rumus energi kinetik:' },
+    { text: 'Kinetic energy formula:' },
     {
       latexUrl: 'https://latex.codecogs.com/png.latex?E_k%3D%5Cfrac%7B1%7D%7B2%7Dmv%5E2',
       latexText: 'Ek = ½mv²',
@@ -924,7 +924,7 @@ await sock.sendMessage(jid, {
 // richResponse
 await sock.sendMessage(jid, {
   richResponse: [
-    { text: 'Solusi integral:' },
+    { text: 'Integral solution:' },
     { latex: { url: 'https://latex.codecogs.com/png.latex?%5Cint%20x%5E2%20dx', text: '∫x² dx = x³/3 + C' } }
   ]
 }, { quoted: message })
@@ -935,7 +935,7 @@ await sock.sendMessage(jid, {
 
 #### 🛍️ Rich Product
 
-> Product card(s) as `GenAIProductItemCardPrimitive`. Object = single card, Array = horizontal scroll carousel.
+> Product card(s) as `GenAIProductItemCardPrimitive`. An object = a single card, an array = a horizontal scroll carousel.
 
 <details>
 <summary><b>Single Product</b></summary>
@@ -943,9 +943,9 @@ await sock.sendMessage(jid, {
 ```js
 await sock.sendMessage(jid, {
   richProduct: {
-    title: 'Sepatu Adidas Samba',
-    price_display_string: 'Rp 1.200.000',
-    description: 'Sepatu casual ikonik, tersedia berbagai ukuran.',
+    title: 'Adidas Samba Sneakers',
+    price_display_string: 'Rp 1,200,000',
+    description: 'Iconic casual shoe, available in various sizes.',
     retailer_id: 'adidas_store',
     thumbnail: { url: 'https://example.com/adidas.jpg', mime_type: 'image/jpeg', width: 300, height: 300 }
   }
@@ -960,13 +960,13 @@ await sock.sendMessage(jid, {
 await sock.sendMessage(jid, {
   richProduct: [
     {
-      title: 'Sepatu A',
-      price_display_string: 'Rp 500.000',
+      title: 'Shoe A',
+      price_display_string: 'Rp 500,000',
       thumbnail: { url: 'https://example.com/a.jpg', mime_type: 'image/jpeg', width: 300, height: 300 }
     },
     {
-      title: 'Sepatu B',
-      price_display_string: 'Rp 750.000',
+      title: 'Shoe B',
+      price_display_string: 'Rp 750,000',
       thumbnail: { url: 'https://example.com/b.jpg', mime_type: 'image/jpeg', width: 300, height: 300 }
     }
   ]
@@ -981,15 +981,15 @@ await sock.sendMessage(jid, {
 // items
 await sock.sendMessage(jid, {
   items: [
-    { text: 'Rekomendasi produk hari ini:' },
-    { product: { title: 'Produk X', price_display_string: 'Rp 99.000' } }
+    { text: "Today's recommended products:" },
+    { product: { title: 'Product X', price_display_string: 'Rp 99,000' } }
   ]
 }, { quoted: message })
 
 // richResponse
 await sock.sendMessage(jid, {
   richResponse: [
-    { text: 'Pilih produkmu:' },
+    { text: 'Choose your product:' },
     { product: [{ title: 'A' }, { title: 'B' }] }
   ]
 }, { quoted: message })
@@ -1000,7 +1000,7 @@ await sock.sendMessage(jid, {
 
 #### 📰 Rich Post
 
-> Post card(s) as `GenAIPostPrimitive`. Object = single post, Array = carousel.
+> Post card(s) as `GenAIPostPrimitive`. An object = a single post, an array = a carousel.
 
 <details>
 <summary><b>Single Post</b></summary>
@@ -1008,7 +1008,7 @@ await sock.sendMessage(jid, {
 ```js
 await sock.sendMessage(jid, {
   richPost: {
-    title: 'Caption post ini',
+    title: 'Caption for this post',
     author_display_name: '@pontalabs',
     author_profile_image: 'https://example.com/avatar.jpg',
     media_url: 'https://example.com/post.jpg',
@@ -1035,7 +1035,7 @@ await sock.sendMessage(jid, {
 
 #### 🎬 Rich Reels
 
-> Reels carousel as `GenAIReelPrimitive` with `contentItemsMetadata`. Auto-injects `richResponseSourcesMetadata` with `provider: 'PontaCT'`.
+> Reels carousel as `GenAIReelPrimitive` with `contentItemsMetadata`. Automatically injects `richResponseSourcesMetadata` with `provider: 'PontaCT'`.
 
 <details>
 <summary><b>Single Reel</b></summary>
@@ -1047,7 +1047,7 @@ await sock.sendMessage(jid, {
     profileIconUrl: 'https://example.com/avatar.jpg',
     thumbnailUrl: 'https://example.com/thumb.jpg',
     videoUrl: 'https://example.com/reel.mp4',
-    reels_title: 'Judul reel ini',
+    reels_title: 'Title of this reel',
     likes_count: 12400,
     shares_count: 340,
     view_count: 89000,
@@ -1107,7 +1107,7 @@ await sock.sendMessage(jid, {
 
 #### 🔍 Rich Sources
 
-> Search result source list as `GenAISearchResultPrimitive`. Accepts full objects **or** shorthand `[faviconUrl, sourceUrl, displayName]`.
+> Search result source list as `GenAISearchResultPrimitive`. Accepts full objects **or** the shorthand `[faviconUrl, sourceUrl, displayName]`.
 
 <details>
 <summary><b>Shorthand Array</b></summary>
@@ -1158,15 +1158,15 @@ await sock.sendMessage(jid, {
 
 #### 📌 Rich Tip & Footer
 
-> `richTip` — small metadata text above/center of message.  
-> `richFooter` — metadata text below message (disclaimer / branding).
+> `richTip` — small metadata text above/centered on the message.
+> `richFooter` — metadata text below the message (disclaimer / branding).
 
 <details>
 <summary><b>Rich Tip</b></summary>
 
 ```js
 await sock.sendMessage(jid, {
-  richTip: 'Dihasilkan oleh AI · pontalabs v0.3.4'
+  richTip: 'Generated by AI · pontalabs v0.3.4'
 }, { quoted: message })
 ```
 </details>
@@ -1176,7 +1176,7 @@ await sock.sendMessage(jid, {
 
 ```js
 await sock.sendMessage(jid, {
-  richFooter: '© 2025 PontaCT · Data bersumber dari layanan publik'
+  richFooter: '© 2025 PontaCT · Data sourced from public services'
 }, { quoted: message })
 ```
 </details>
@@ -1188,7 +1188,7 @@ await sock.sendMessage(jid, {
 // items
 await sock.sendMessage(jid, {
   items: [
-    { text: 'Hasil pencarian:' },
+    { text: 'Search results:' },
     { sources: [['https://fav.ico', 'https://example.com', 'Example']] },
     { tip: 'AI-generated content' },
     { footer: '© PontaCT Baileys' }
@@ -1198,7 +1198,7 @@ await sock.sendMessage(jid, {
 // richResponse
 await sock.sendMessage(jid, {
   richResponse: [
-    { text: 'Summary di sini.' },
+    { text: 'Summary here.' },
     { footer: '© PontaCT · pontalabs' }
   ]
 }, { quoted: message })
@@ -1235,9 +1235,9 @@ await sock.sendMessage(jid, {
 ```js
 await sock.sendMessage(jid, {
   items: [
-    { text: 'Query yang dijalankan:' },
+    { text: 'Query executed:' },
     { code: 'SELECT id, name, score FROM users ORDER BY score DESC LIMIT 3', language: 'sql' },
-    { text: 'Hasil:' },
+    { text: 'Result:' },
     {
       table: {
         headers: ['id', 'name', 'score'],
@@ -1259,10 +1259,10 @@ await sock.sendMessage(jid, {
 ```js
 await sock.sendMessage(jid, {
   items: [
-    { text: '*Konten hari ini*' },
+    { text: "*Today's content*" },
     { images: ['https://example.com/1.jpg', 'https://example.com/2.jpg'] },
     { videoUrl: 'https://example.com/preview.mp4', duration: 15 },
-    { suggestions: ['Lihat selengkapnya', 'Bagikan', 'Simpan'] }
+    { suggestions: ['See more', 'Share', 'Save'] }
   ]
 }, { quoted: message })
 ```
@@ -1274,10 +1274,10 @@ await sock.sendMessage(jid, {
 ```js
 await sock.sendMessage(jid, {
   items: [
-    { text: '*Laporan Harian Bot*' },
+    { text: '*Daily Bot Report*' },
     { table: { headers: ['Metric', 'Value'], rows: [['Uptime', '99.9%'], ['Messages', '1.2K']] } },
     { code: 'SELECT COUNT(*) FROM messages WHERE date = CURDATE()', language: 'sql' },
-    { text: 'Formula uptime:' },
+    { text: 'Uptime formula:' },
     {
       latexUrl: 'https://latex.codecogs.com/png.latex?U%3D%5Cfrac%7Bt_u%7D%7Bt_t%7D%5Ctimes100',
       latexText: 'U = (tu/tt) × 100'
@@ -1294,7 +1294,7 @@ await sock.sendMessage(jid, {
 
 #### 🔗 Rich Response — `richResponse`
 
-> Full array mode supporting all types including inline citations via `inlineEntities`.
+> Full array mode supporting all types, including inline citations via `inlineEntities`.
 
 **Valid keys in `richResponse`:**
 
@@ -1302,7 +1302,7 @@ await sock.sendMessage(jid, {
 |:---|:---|
 | `{ text, inlineEntities? }` | Text + optional citation/hyperlink |
 | `{ code, language }` | Code block |
-| `{ table, title? }` | Table — ⚠️ format beda dari `items`/top-level: `table` di sini harus array baris siap-pakai `[{ items: [...], isHeading }]`, **bukan** `{ headers, rows }` |
+| `{ table, title? }` | Table — ⚠️ format differs from `items`/top-level: here `table` must already be an array of ready-made rows `[{ items: [...], isHeading }]`, **not** `{ headers, rows }` |
 | `{ images }` | Image grid |
 | `{ video }` | Video embed |
 | `{ suggestions }` | Suggestion pills |
@@ -1321,7 +1321,7 @@ await sock.sendMessage(jid, {
 await sock.sendMessage(jid, {
   richResponse: [
     {
-      text: 'Node.js {{SS_0}}¹{{/SS_0}} adalah runtime JavaScript. Dibuat oleh Ryan Dahl {{SS_1}}²{{/SS_1}} pada 2009.',
+      text: 'Node.js {{SS_0}}¹{{/SS_0}} is a JavaScript runtime. Created by Ryan Dahl {{SS_1}}²{{/SS_1}} in 2009.',
       inlineEntities: [
         {
           key: 'SS_0',
@@ -1368,9 +1368,9 @@ await sock.sendMessage(jid, {
 ```js
 await sock.sendMessage(jid, {
   richResponse: [
-    { text: '*Hasil Pencarian:* Node.js {{SS_0}}¹{{/SS_0}}', inlineEntities: [/* ... */] },
+    { text: '*Search Result:* Node.js {{SS_0}}¹{{/SS_0}}', inlineEntities: [/* ... */] },
     { images: ['https://example.com/nodejs.png'] },
-    { text: 'Cara install:' },
+    { text: 'How to install:' },
     { code: 'npm install node', language: 'bash' },
     {
       table: [
@@ -1380,7 +1380,7 @@ await sock.sendMessage(jid, {
       ]
     },
     { sources: [['https://nodejs.org/fav.ico', 'https://nodejs.org', 'Node.js']] },
-    { suggestions: ['Lihat changelog', 'Download', 'Docs'] },
+    { suggestions: ['View changelog', 'Download', 'Docs'] },
     { footer: 'PontaCT · pontalabs' }
   ]
 }, { quoted: message })
@@ -1392,13 +1392,13 @@ await sock.sendMessage(jid, {
 #### ⚙️ Rich Options
 
 <details>
-<summary><b><code>aiForwarded</code> — toggle label "Diteruskan dari bot AI"</b></summary>
+<summary><b><code>aiForwarded</code> — toggle the "Forwarded from AI bot" label</b></summary>
 
-> Default `false`. Set `true` kalau mau pesan diberi tag forwarded-from-AI-bot di `contextInfo`. Bisa dipakai bareng key rich manapun (`richText`, `items`, `richResponse`, dll).
+> Default `false`. Set to `true` if you want the message tagged as forwarded-from-AI-bot in `contextInfo`. Can be used together with any rich key (`richText`, `items`, `richResponse`, etc.).
 
 ```js
 await sock.sendMessage(jid, {
-  richText: 'Pesan dengan label AI bot',
+  richText: 'Message with AI bot label',
   aiForwarded: true
 }, { quoted: message })
 ```
@@ -1525,13 +1525,13 @@ console.log('Participants:', metadata.participants.length)
 <details>
 <summary><b>📢 Group Status</b></summary>
 
-> Send group status (`groupStatusMessageV2`) with audience control and styling. `message` can be a `string` or a prepared WAMessage object.
+> Send a group status (`groupStatusMessageV2`) with audience control and styling. `message` can be a `string` or a prepared WAMessage object.
 
 ```js
 // Text Status
 await sock.sendMessage(jid, {
   groupStatus: {
-    message: 'Selamat datang di grup PontaCT! 🎉',
+    message: 'Welcome to the PontaCT group! 🎉',
     audienceType: 0  // 0 = all members
   }
 })
@@ -1539,7 +1539,7 @@ await sock.sendMessage(jid, {
 // Styled Text Status
 await sock.sendMessage(jid, {
   groupStatus: {
-    message: 'Bot aktif kembali! ✅',
+    message: 'The bot is back online! ✅',
     audienceType: 0,
     backgroundArgb: 0xFF1A1A2E,
     textArgb: 0xFFFFFFFF,
@@ -1640,18 +1640,18 @@ sock.ws.on('CB:edge_routing', (node) => {
 <details>
 <summary><b>📅 Event RSVP Utilities</b></summary>
 
-> Dua fungsi util untuk memproses respons RSVP (`GOING` / `NOT_GOING` / `MAYBE`) pada pesan event kalender secara lokal, tanpa perlu ambil ulang dari server.
+> Two utility functions for processing RSVP responses (`GOING` / `NOT_GOING` / `MAYBE`) on calendar event messages locally, without needing to re-fetch from the server.
 
 ```js
 const { updateMessageWithEventResponse, getAggregateResponsesInEventMessage } = require('@hansamal/baileys')
 
-// terapkan RSVP baru ke object event message yang sudah kamu simpan
+// apply a new RSVP to a previously saved event message object
 updateMessageWithEventResponse(eventMsg, {
   eventResponseMessageKey: update.key,
   response: { response: 1 } // 1 = GOING
 })
 
-// rekap semua RSVP jadi { GOING: [...], NOT_GOING: [...], MAYBE: [...] }
+// summarize all RSVPs into { GOING: [...], NOT_GOING: [...], MAYBE: [...] }
 const summary = getAggregateResponsesInEventMessage(eventMsg, sock.user.lid)
 ```
 </details>
@@ -1670,7 +1670,7 @@ const summary = getAggregateResponsesInEventMessage(eventMsg, sock.user.lid)
 
 ## 🤝 Contributing
 
-1. **Fork** repository
+1. **Fork** the repository
 2. Create a feature branch: `git checkout -b feat/your-feature`
 3. Commit your changes: `git commit -m "feat: add something awesome"`
 4. Push to your branch: `git push origin feat/your-feature`
@@ -1693,7 +1693,7 @@ This project is licensed for **personal and non-commercial use only**.
 
 ## ⚠️ Disclaimer
 
-> This project is **not affiliated with WhatsApp or Meta** in any way.  
+> This project is **not affiliated with WhatsApp or Meta** in any way.
 > Use at your own risk and refer to WhatsApp's [Terms of Service](https://www.whatsapp.com/legal/terms-of-service) for compliance.
 
 ---
@@ -1704,6 +1704,6 @@ This project is licensed for **personal and non-commercial use only**.
 
 <br>
 
-Relese ♥ by **Baileys**
+Released ♥ by **Baileys**
 
 </div>
