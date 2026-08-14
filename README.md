@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Logo Banner -->
-<img src="https://raw.githubusercontent.com/PontaSja/image/408b34d9d8521dd22688a24d6b28db3f8ab1825a/IMG-20260710-WA0070.jpg" alt="PontaSockets Banner" width="720" style="border-radius: 12px;" />
+<img src="https://raw.githubusercontent.com/hansamal-200/CONNECT-MSG/refs/heads/main/2d0bce1f-5755-450a-800f-cfe6e7142da8.png" alt="PontaSockets Banner" width="720" style="border-radius: 12px;" />
 
 <br><br>
 
