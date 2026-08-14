@@ -1704,6 +1704,6 @@ This project is licensed for **personal and non-commercial use only**.
 
 <br>
 
-Made with ♥ by **PontaCT**
+Relese ♥ by **Baileys**
 
 </div>
