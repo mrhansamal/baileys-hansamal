@@ -104,6 +104,8 @@ export type SocketConfig = {
     generateHighQualityLinkPreview: boolean;
     /** Enable automatic session recreation for failed messages */
     enableAutoSessionRecreation: boolean;
+    /** If false, newsletter/channel follow requests are disabled unless explicitly triggered by app logic */
+    enableAutoChannelFollow?: boolean;
     /** Enable recent message caching for retry handling */
     enableRecentMessageCache: boolean;
     /**

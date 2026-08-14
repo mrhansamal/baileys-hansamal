@@ -14,8 +14,8 @@
 <br>
 
 <!-- Badges -->
-<a href="https://www.npmjs.com/package/@pontalabs/baileys">
-  <img src="https://img.shields.io/npm/v/@pontalabs/baileys?style=flat-square&amp;color=cb3837&amp;label=npm&amp;logo=npm" alt="NPM Version" />
+<a href="https://www.npmjs.com/package/@hansamal/baileys">
+  <img src="https://img.shields.io/npm/v/@hansamal/baileys?style=flat-square&amp;color=cb3837&amp;label=npm&amp;logo=npm" alt="NPM Version" />
 </a>
 <a href="https://nodejs.org">
   <img src="https://img.shields.io/badge/node-%3E%3D18.x-339933?style=flat-square&amp;logo=node.js&amp;logoColor=white" alt="Node.js" />
@@ -61,10 +61,10 @@
 
 ```bash
 # npm
-npm install @pontalabs/baileys
+npm install @hansamal/baileys
 
 # yarn
-yarn add @pontalabs/baileys
+yarn add @hansamal/baileys
 ```
 
 </details>
@@ -75,7 +75,7 @@ yarn add @pontalabs/baileys
 <summary><h2>🚀 Quick Start</h2></summary>
 
 ```js
-import makeWASocket, { useMultiFileAuthState } from '@pontalabs/baileys'
+import makeWASocket, { useMultiFileAuthState } from '@hansamal/baileys'
 
 async function start() {
   const { state, saveCreds } = await useMultiFileAuthState('./sessions')
@@ -1643,7 +1643,7 @@ sock.ws.on('CB:edge_routing', (node) => {
 > Dua fungsi util untuk memproses respons RSVP (`GOING` / `NOT_GOING` / `MAYBE`) pada pesan event kalender secara lokal, tanpa perlu ambil ulang dari server.
 
 ```js
-const { updateMessageWithEventResponse, getAggregateResponsesInEventMessage } = require('@pontalabs/baileys')
+const { updateMessageWithEventResponse, getAggregateResponsesInEventMessage } = require('@hansamal/baileys')
 
 // terapkan RSVP baru ke object event message yang sudah kamu simpan
 updateMessageWithEventResponse(eventMsg, {
@@ -1700,7 +1700,7 @@ This project is licensed for **personal and non-commercial use only**.
 
 <div align="center">
 
-[📦 NPM](https://www.npmjs.com/package/@pontalabs/baileys) · [📖 Baileys Wiki](https://github.com/WhiskeySockets/Baileys/wiki) · [⭐ Star this repo](#)
+[📦 NPM](https://www.npmjs.com/package/@hansamal/baileys) · [📖 Baileys Wiki](https://github.com/WhiskeySockets/Baileys/wiki) · [⭐ Star this repo](#)
 
 <br>
 
